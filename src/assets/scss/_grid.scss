@@ -1,0 +1,48 @@
+@import "mixins";
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 64px;
+  @include media-breakpoint-down(md){
+    padding: 0 24px;
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  @include media-breakpoint-down(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-5 {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  grid-template-columns: repeat(5, 1fr);
+  @include media-breakpoint-down(md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
+}
+
