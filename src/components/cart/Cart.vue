@@ -21,7 +21,7 @@
         <p class="t16 f400">Итого</p>
         <p class="t30 f600">{{totalPrice}} &#8381</p>
       </div>
-      <button class="chek btn t12 f600">Оформить заказ</button>
+      <button @click="sendDataToServer" class="chek btn t12 f600">Оформить заказ</button>
     </div>
   </div>
 </template>
@@ -90,6 +90,24 @@ export default {
         },
         decrementItem(index) {
             this.DECREMENT(index);
+        },
+        sendDataToServer() {
+            let body = JSON.stringify(this.CART);
+            // Делаем POST запрос на сервер, вкладываем в тело запроса Cart
+            fetch('#', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+                body: body,
+            }).then((response) => {
+                if (response.ok) {
+                    // Выполняем код, наример очищаем козину потому что все улетело на сервер.
+                    this.delAllFromCart();
+                }
+            }).catch((err) => {
+                console.log(err);
+            });
         }
     }
 

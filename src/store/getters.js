@@ -32,14 +32,8 @@ export default {
                 }
             });
 
-
         let sortKey = filter.selectSort.split(':')[0];
         let sortDir = filter.selectSort.split(':')[1];
-
-        //lodash ver.
-        /*let sorted = _.sortBy(filtered, product => {
-            return Number(product[sortKey]);
-        });*/
 
         let sorted = filtered.sort((a, b) => {
             return Number(a[sortKey] - b[sortKey]);

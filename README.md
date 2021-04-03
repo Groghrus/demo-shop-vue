@@ -1,7 +1,7 @@
 # demo-shop-vue
 
 ### Технологии: Vue.js, vuex, scss
-### Demo link: 
+### Demo link: https://demo-shop-vue.netlify.app
 
 ## Project setup
 ```
